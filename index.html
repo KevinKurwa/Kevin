@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevinek</title>
+  <link rel="icon" href="58485538b772315a9e4dd5d9.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes particleMove {
+      0% { transform: translate(0, 0); opacity: 0.1; }
+      50% { opacity: 0.3; }
+      100% { transform: translate(var(--tx), var(--ty)); opacity: 0.1; }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #272727, #272727);
+      background-size: 800% 800%;
+      animation: gradientBG 5s ease infinite;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      color: #2b2a2a;
+    }
+
+    .profile-card {
+      background: rgba(30, 30, 30, 0.7);
+      border-radius: 24px;
+      width: 340px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 0.8s ease-out forwards;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .top-section {
+      margin-bottom: 20px;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .status-dot {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 18px;
+      height: 18px;
+      background-color: #00ff7f;
+      border-radius: 50%;
+      border: 2px solid #2a2a2a;
+      z-index: 2;
+    }
+
+    .name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .username {
+      font-size: 16px;
+      color: rgba(200, 200, 200, 0.8);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .bio {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      padding: 0 15px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(50, 50, 50, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      width: 100%;
+      max-width: 260px;
+      backdrop-filter: blur(5px);
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: rgba(70, 70, 70, 0.6);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn i {
+      font-size: 18px;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: rgba(200, 200, 200, 0.6);
+      margin-top: 25px;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: particleMove 8s infinite ease-in-out;
+      will-change: transform, opacity;
+    }
+
+    .social-stats {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: rgba(200, 200, 200, 0.7);
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-top: 15px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="top-section">
+      <div class="avatar-container">
+        <img src="azdus.webp" alt="Avatar" class="avatar" />
+        <div class="status-dot"></div>
+      </div>
+      <h1 class="name">Kevinek</h1>
+      <div class="username">@kevinkurwa</div>
+      <div class="badge">Premium Reseller / Developer</div>
+    </div>
+
+    <div class="social-stats">
+      <div class="stat">
+        <div class="stat-value">3K</div>
+        <div class="stat-label">Products Sold</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1k</div>
+        <div class="stat-label">Customers</div>
+      </div>
+    </div>
+
+    <div class="bio">
+      Runs an online store selling digital goods and gear. Codes free game cheats on the side just for fun.
+    </div>
+
+    <div class="buttons">
+      <a href="https://discord.gg/kenoservice" target="_blank" class="btn">
+        <i class="fab fa-discord"></i>
+        <span>Join Discord</span>
+      </a>
+      <a href="https://www.youtube.com/@kenoservicexyz" target="_blank" class="btn">
+        <i class="fab fa-youtube"></i>
+        <span>YouTube Channel</span>
+      </a>
+      <a href="https://kenoservice.xyz/" target="_blank" class="btn">
+        <i class="fas fa-globe"></i>
+        <span>Visit Website</span>
+      </a>
+    </div>
+
+    <div class="footer">
+      © 2025 Kevinek | All Rights Reserved
+    </div>
+  </div>
+
+  <div class="particles" id="particles"></div>
+
+  <script>
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 80;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      const tx = (Math.random() - 0.5) * 100;
+      const ty = (Math.random() - 0.5) * 100;
+      particle.style.setProperty('--tx', `${tx}px`);
+      particle.style.setProperty('--ty', `${ty}px`);
+      const size = 1 + Math.random() * 3;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.animationDelay = `${Math.random() * 8}s`;
+      particle.style.animationDuration = `${5 + Math.random() * 10}s`;
+      particle.style.opacity = Math.random() * 0.3;
+      particlesContainer.appendChild(particle);
+    }
+
+    // Typing loop animation for document title
+    const fullTitle = "Kevinek";
+    let currentText = fullTitle;
+    let charIndex = fullTitle.length;
+    let isDeleting = true;
+
+    function updateTitle() {
+      if (isDeleting) {
+        currentText = fullTitle.substring(0, charIndex--);
+        if (charIndex <= 0) {
+          isDeleting = false;  // Stop deleting when we reach just the "K"
+        }
+      } else {
+        currentText = fullTitle.substring(0, ++charIndex);
+      }
+
+      document.title = currentText || " ";
+
+      if (!isDeleting && charIndex >= fullTitle.length) {
+        isDeleting = true;
+        setTimeout(updateTitle, 800);
+        return;
+      }
+
+      setTimeout(updateTitle, 200);
+    }
+
+    updateTitle();
+  </script>
+</body>
+</html>
