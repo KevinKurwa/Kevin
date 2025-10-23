@@ -7,7 +7,6 @@
     <link rel="icon" type="image/x-icon" href="kevinek.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* All your existing CSS remains unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -122,7 +121,6 @@
                     width: 100%;
                 }
 
-        /* Improved Skills Overlay */
         .skills-overlay {
             position: fixed;
             top: 0;
@@ -302,12 +300,11 @@
             color: var(--accent);
         }
 
-        /* Rest of your existing CSS remains the same */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            padding-top: 80px; /* Account for fixed navbar */
+            padding-top: 80px; 
         }
 
         header {
@@ -798,7 +795,6 @@
     </style>
 </head>
 <body>
-    <!-- Improved Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-brand">
@@ -814,7 +810,6 @@
         </div>
     </nav>
 
-    <!-- Improved Skills Overlay -->
     <div class="skills-overlay" id="skillsOverlay">
         <div class="skills-content">
             <button class="close-skills" id="closeSkills">&times;</button>
@@ -961,7 +956,6 @@
         <div class="product-section">
             <div class="product-container">
                 <div class="youtube-thumbnail-container">
-                    <!-- YouTube thumbnail that links to the video -->
                     <a href="https://www.youtube.com/watch?v=9qQnYtUmvvE" target="_blank">
                         <img src="https://img.youtube.com/vi/9qQnYtUmvvE/maxresdefault.jpg" alt="KenoService Demo Video" class="youtube-thumbnail">
                     </a>
@@ -1002,23 +996,19 @@
     <div class="toast" id="copyToast">Litecoin address copied to clipboard!</div>
 
     <script>
-        // Navbar scroll behavior with slower animation
         let lastScrollY = window.scrollY;
         const navbar = document.getElementById('navbar');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                // Scrolling down
                 navbar.classList.add('hidden');
             } else {
-                // Scrolling up
                 navbar.classList.remove('hidden');
             }
 
             lastScrollY = window.scrollY;
         });
 
-        // Skills button functionality
         document.querySelectorAll('.skills-button').forEach(button => {
             button.addEventListener('click', function () {
                 const member = this.getAttribute('data-member');
@@ -1027,7 +1017,6 @@
                 const offersText = document.getElementById('offersText');
                 const contactText = document.getElementById('contactText');
 
-                // Reset skill bars
                 document.querySelectorAll('.skill-progress').forEach(bar => {
                     bar.style.width = '0';
                 });
@@ -1074,10 +1063,8 @@
                     contactText.textContent = "Contact Makaknacker for marketing services";
                 }
 
-                // Show overlay
                 skillsOverlay.classList.add('active');
 
-                // Animate skill bars
                 setTimeout(() => {
                     const skillBars = document.querySelectorAll('.skill-progress');
                     skillBars.forEach(bar => {
@@ -1088,19 +1075,16 @@
             });
         });
 
-        // Close skills overlay
         document.getElementById('closeSkills').addEventListener('click', function () {
             document.getElementById('skillsOverlay').classList.remove('active');
         });
 
-        // Close overlay when clicking outside content
         document.getElementById('skillsOverlay').addEventListener('click', function (e) {
             if (e.target === this) {
                 document.getElementById('skillsOverlay').classList.remove('active');
             }
         });
 
-        // Litecoin address copy functionality
         document.addEventListener('DOMContentLoaded', function () {
             const ltcLogos = document.querySelectorAll('.ltc-logo');
             const toast = document.getElementById('copyToast');
@@ -1108,16 +1092,13 @@
 
             ltcLogos.forEach(logo => {
                 logo.addEventListener('click', function () {
-                    // Copy to clipboard
                     navigator.clipboard.writeText(ltcAddress).then(() => {
-                        // Show toast notification
                         toast.classList.add('show');
                         setTimeout(() => {
                             toast.classList.remove('show');
                         }, 3000);
                     }).catch(err => {
                         console.error('Failed to copy: ', err);
-                        // Fallback for older browsers
                         const textArea = document.createElement('textarea');
                         textArea.value = ltcAddress;
                         document.body.appendChild(textArea);
@@ -1125,7 +1106,6 @@
                         document.execCommand('copy');
                         document.body.removeChild(textArea);
 
-                        // Show toast notification
                         toast.classList.add('show');
                         setTimeout(() => {
                             toast.classList.remove('show');
@@ -1137,3 +1117,4 @@
     </script>
 </body>
 </html>
+
