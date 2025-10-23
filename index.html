@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon</title>
+    <link rel="icon" type="image/png" href="kevinek.png">
     <style>
         * {
             margin: 0;
@@ -94,6 +95,14 @@
             animation: progress 3s ease-in-out infinite alternate;
         }
         
+        .kevinek-dev {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -103,31 +112,6 @@
         @keyframes progress {
             0% { width: 30%; }
             100% { width: 70%; }
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background-color: #444;
-            transform: translateY(-3px);
         }
         
         @media (max-width: 600px) {
@@ -142,6 +126,10 @@
             p {
                 font-size: 1rem;
             }
+            
+            .kevinek-dev {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -155,11 +143,7 @@
                 <div class="progress-bar"></div>
             </div>
             <p>Our website is currently undergoing maintenance. We'll be back online shortly.</p>
-            <div class="social-links">
-                <a href="#" class="social-link">f</a>
-                <a href="#" class="social-link">t</a>
-                <a href="#" class="social-link">in</a>
-            </div>
+            <div class="kevinek-dev">@kevinek.dev</div>
         </div>
     </div>
 </body>
